@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">213426496723-2cikhgbd68ip8srjmca7agiqc8eup4pe.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://posyanduugm.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">213426496723</string>
+    <string name="google_api_key" translatable="false">AIzaSyCTd6iR0FHRpaW97qIWB_-VUUmXLMB25UQ</string>
+    <string name="google_app_id" translatable="false">1:213426496723:android:13c3c6a65bcbec53</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCTd6iR0FHRpaW97qIWB_-VUUmXLMB25UQ</string>
+    <string name="google_storage_bucket" translatable="false">posyanduugm.appspot.com</string>
+    <string name="project_id" translatable="false">posyanduugm</string>
+</resources>

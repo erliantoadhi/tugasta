@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "213426496723",
+    "firebase_url": "https://posyanduugm.firebaseio.com",
+    "project_id": "posyanduugm",
+    "storage_bucket": "posyanduugm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213426496723:android:13c3c6a65bcbec53",
+        "android_client_info": {
+          "package_name": "com.example.drawerlayout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213426496723-q7rp71arpmq2stcs5ovti7doued0s9ta.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.drawerlayout",
+            "certificate_hash": "65f8020c2ea0875f410a5e1d0ff8ea7d174ab0c4"
+          }
+        },
+        {
+          "client_id": "213426496723-2cikhgbd68ip8srjmca7agiqc8eup4pe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTd6iR0FHRpaW97qIWB_-VUUmXLMB25UQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213426496723-2cikhgbd68ip8srjmca7agiqc8eup4pe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

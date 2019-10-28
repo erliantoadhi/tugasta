@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1b75bb</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="white">#ffffff</color>
+    <color name="ijo">#38ff00</color>
+    <color name="biru">#00FFFF</color>
+    <color name="hitam">#000000</color>
+    <color name="LightGray">#d3d3d3</color>
+    <color name="transparan">#00FFFFFF</color>
+</resources>

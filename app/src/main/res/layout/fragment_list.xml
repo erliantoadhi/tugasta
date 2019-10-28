@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:fontFamily="serif"
+                android:text="Data Bayi"
+                android:gravity="center"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/no"
+                        android:fontFamily="serif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000"
+                        android:text="No"/>
+                    <TextView
+                        android:id="@+id/nama"
+                        android:fontFamily="serif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000"
+                        android:text="Nama"/>
+                    <TextView
+                        android:id="@+id/umur"
+                        android:fontFamily="serif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000"
+                        android:text="Umur"/>
+                    <TextView
+                        android:id="@+id/pb"
+                        android:fontFamily="serif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000"
+                        android:text="PB(cm)"/>
+                    <TextView
+                        android:id="@+id/bb"
+                        android:fontFamily="serif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000"
+                        android:text="BB(kg)"/>
+                    <TextView
+                        android:id="@+id/status"
+                        android:fontFamily="serif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000"
+                        android:text="Status"/>
+                </TableRow>
+                <View
+                    android:layout_height="3dip"
+                    android:layout_width="match_parent"
+                    android:background="#ff0000"/>
+
+            </TableLayout>
+
+            <ListView
+                android:id="@+id/list_view"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_alignParentTop="true"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
