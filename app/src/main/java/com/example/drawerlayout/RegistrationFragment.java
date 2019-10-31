@@ -161,17 +161,6 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
     //==================================================================================popup Simpan
     public void popup() {
-        db.isi(
-                Integer.parseInt(String.valueOf(noSeri.getText())),
-                nmBayi.getText().toString(),
-                Integer.parseInt(String.valueOf(umur.getText())),
-                nmIbu.getText().toString(),
-                noHp.getText().toString(),
-                Integer.parseInt(String.valueOf(tb.getText())),
-                Float.parseFloat(String.valueOf(bb.getText())),
-                gizi.getText().toString()
-        );
-
         final Dialog dialog = new Dialog(getActivity());
         dialog.getWindow();
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -198,7 +187,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
                     pg.setMessage("Mohon Tunggu");
                     pg.show();
                     if (db.isi(
-                            Integer.parseInt(String.valueOf(noSeri.getText())),
+                            Long.parseLong(String.valueOf(noSeri.getText())),
                             nmBayi.getText().toString(),
                             Integer.parseInt(String.valueOf(umur.getText())),
                             nmIbu.getText().toString(),

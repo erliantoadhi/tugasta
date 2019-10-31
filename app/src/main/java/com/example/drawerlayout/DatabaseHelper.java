@@ -49,10 +49,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean isi(int seri, String name, int umur, String nmIbu, String noHp, int tb, float bb, String gizi) {
+    public boolean isi(long noSeri, String name, int umur, String nmIbu, String noHp, int tb, float bb, String gizi) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(CL_NOSERI, seri);
+        cv.put(CL_NOSERI, noSeri);
         cv.put(CL_NMBAYI, name);
         cv.put(CL_UMURBAYI, umur);
         cv.put(CL_NMIBU, nmIbu);

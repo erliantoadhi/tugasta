@@ -1308,7 +1308,6 @@ id line3
 id listMode
 id list_item
 id list_view
-id list_view2
 id masked
 id media_actions
 id message
@@ -1525,7 +1524,6 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fragment_home
 layout fragment_list
-layout fragment_listview
 layout fragment_registration
 layout image
 layout modal

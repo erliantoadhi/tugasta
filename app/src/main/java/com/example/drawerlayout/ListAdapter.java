@@ -15,9 +15,9 @@ import java.util.List;
 
 public class ListAdapter extends ArrayAdapter {
 
-    List list = new ArrayList();
+    private List<Object> list = new ArrayList<>();
 
-    public ListAdapter(@NonNull Context context, int resource) {
+    ListAdapter(@NonNull Context context, int resource) {
         super(context, resource);
     }
 
@@ -26,7 +26,7 @@ public class ListAdapter extends ArrayAdapter {
     }
 
     @Override
-    public void add(@Nullable Object object) {
+    public void add(Object object) {
 //        super.add(object);
         list.add(object);
     }

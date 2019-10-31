@@ -74,7 +74,6 @@ public class ListviewFragment extends Fragment {
         }
         Log.d(TAG, "onCreateView: "+cursor.getCount());
 
-
         return view;
     }
 }
