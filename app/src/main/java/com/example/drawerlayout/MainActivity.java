@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new RegistrationFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_home);
         }
 
 //        ActionBar actionBar = getSupportActionBar();
@@ -46,10 +45,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new HomeFragment()).commit();
-                break;
             case R.id.nav_registration:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new RegistrationFragment()).commit();

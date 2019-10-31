@@ -2,7 +2,6 @@ package com.example.drawerlayout;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,8 +57,6 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
     public void setSerii(String serii) {
         this.serii = serii;
     }
-
-
 
     private void getFirebase() {
         try {
@@ -271,8 +267,6 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
         System.out.println(getPingg() + "\t" + getBeratt());
     }
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -320,7 +314,6 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
         getFirebase();
 
         return view;
-
     }
 
     @Override
@@ -337,6 +330,5 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
             case R.id.default_activity_button:
                 break;
         }
-
     }
 }
