@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -24,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 2);
+        super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
@@ -60,11 +63,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(CL_TB, tb);
         cv.put(CL_BB, bb);
         cv.put(CL_GIZI, gizi);
-        long result = db.insert(bayi, null, cv);
+//        long result = db.insertWithOnConflict(bayi, null, cv, SQLiteDatabase.CONFLICT_IGNORE);
+//        Log.d("Result Insert", "= " + result);
+//        if (result == -1) db.update(bayi, cv, CL_NOSERI + "=?", new String[] {String.valueOf(noSeri)});
 
-        if (result == -1) return false;
-        else return true;
+        Log.d("dbhelper", "db noSeri = " + noSeri);
+
+        if(getAllNoSeri().contains(String.valueOf(noSeri))) {
+            db.update(bayi, cv, CL_NOSERI + "=?", new String[] {String.valueOf(noSeri)});
+            Log.d("dbhelper", "db = update");
+        } else {
+            db.insert(bayi, null, cv );
+            Log.d("dbhelper", "db = insert");
+        }
+
+//        long result = db.update(bayi, cv, CL_NOSERI + "=?", new String[] {String.valueOf(noSeri)});
+//        Log.d("Result Insert", "= " + result);
+//        if (result == 0) db.insertWithOnConflict(bayi, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+        return true;
     }
+
+
 
     public Cursor getData(String nmby, String nmIbu) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -80,5 +99,91 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
 
         return cursor;
+    }
+
+    public ArrayList<String> getAllNoSeri(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + bayi ;
+        Cursor cursor = db.rawQuery(query, null);
+        ArrayList<String > noSeri = new ArrayList();
+        if (cursor != null){
+            if (cursor.moveToFirst()) {
+                while(!cursor.isAfterLast()) {
+                    noSeri.add(cursor.getString(1));
+                    cursor.moveToNext();
+                }
+            }
+        }
+
+        return noSeri;
+    }
+
+    public String getNamaBayi(String noSeri) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + bayi + " WHERE " + CL_NOSERI + "='" + noSeri +"'";
+        Cursor cursor = db.rawQuery(query, null);
+
+        String nama = "";
+
+        if (cursor != null){
+            if (cursor.moveToFirst()) {
+                do {
+                    nama = (cursor.getString(2));
+                } while(cursor.moveToNext());
+            }
+        }
+
+        return nama;
+    }
+
+    public String getUmurBayi(String noSeri) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + bayi + " WHERE " + CL_NOSERI + "='" + noSeri +"'";
+        Cursor cursor = db.rawQuery(query, null);
+        String nama = "";
+
+        if (cursor != null){
+            if (cursor.moveToFirst()) {
+                do {
+                    nama = (cursor.getString(3));
+                } while(cursor.moveToNext());
+            }
+        }
+
+        return nama;
+    }
+
+    public String getIbuBayi(String noSeri) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + bayi + " WHERE " + CL_NOSERI + "='" + noSeri +"'";
+        Cursor cursor = db.rawQuery(query, null);
+        String nama = "";
+
+        if (cursor != null){
+            if (cursor.moveToFirst()) {
+                do {
+                    nama = (cursor.getString(4));
+                } while(cursor.moveToNext());
+            }
+        }
+
+        return nama;
+    }
+
+    public String getNoHP(String noSeri) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + bayi + " WHERE " + CL_NOSERI + "='" + noSeri +"'";
+        Cursor cursor = db.rawQuery(query, null);
+        String nama = "";
+
+        if (cursor != null){
+            if (cursor.moveToFirst()) {
+                do {
+                    nama = (cursor.getString(5));
+                } while(cursor.moveToNext());
+            }
+        }
+
+        return nama;
     }
 }

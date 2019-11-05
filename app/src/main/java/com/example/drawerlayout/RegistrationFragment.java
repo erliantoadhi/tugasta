@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class RegistrationFragment extends Fragment implements View.OnClickListener {
 
     private EditText noSeri, nmBayi, umur, nmIbu, noHp, tb, bb, gizi;
@@ -33,6 +36,12 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
     protected String pingg;
     protected String beratt;
     protected String serii;
+
+    private boolean isFirstOpen = true;
+
+    public static RegistrationFragment newInstance() {
+        return new RegistrationFragment();
+    }
 
     public String getPingg() {
         return pingg;
@@ -59,6 +68,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
     }
 
     private void getFirebase() {
+//        isFirstOpen = true;
         try {
             System.out.println("cari data");
 
@@ -67,9 +77,38 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
             seri.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    String value = dataSnapshot.getValue(String.class);
-                    noSeri.setText(value);
-                    setSerii(value);
+                    if (isFirstOpen) {
+                        isFirstOpen = false;
+                    } else {
+                        String value = dataSnapshot.getValue(String.class);
+                        Log.d("onDataChanged", "newData no seri = " + value);
+                        noSeri.setText(value);
+                        setSerii(value);
+
+                        ArrayList<String> listnoSeri = db.getAllNoSeri();
+
+                        if (db.getAllNoSeri().contains(value)) {
+                            try {
+                                String nama = db.getNamaBayi(value);
+                                String umurbayi = db.getUmurBayi(value);
+                                String ibu = db.getIbuBayi(value);
+                                String nohp = db.getNoHP(value);
+
+                                nmBayi.setText(nama);
+                                umur.setText(umurbayi);
+                                nmIbu.setText(ibu);
+                                noHp.setText(nohp);
+
+                            }
+                            catch (Exception e){
+                                e.printStackTrace();
+                                Log.d("dbhelper", "db set Error : " + e.getMessage());
+                            }
+                        }
+
+                    }
+
+
                 }
 
                 @Override
@@ -310,11 +349,12 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
             public void onCancelled(DatabaseError error) {
             }
         });
-
         getFirebase();
 
         return view;
     }
+
+//    private void clearText
 
     @Override
     public void onClick(View view) {

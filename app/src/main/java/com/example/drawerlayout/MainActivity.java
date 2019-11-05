@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.material.navigation.NavigationView;
 
 import android.os.Bundle;
@@ -13,6 +15,8 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+
+    private Fragment registrationFragment = RegistrationFragment.newInstance() ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +36,11 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+//        registrationFragment = new RegistrationFragment();
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new RegistrationFragment()).commit();
+                    registrationFragment).commit();
         }
 
 //        ActionBar actionBar = getSupportActionBar();
@@ -47,7 +53,7 @@ public class MainActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.nav_registration:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new RegistrationFragment()).commit();
+                        registrationFragment).commit();
                 break;
             case R.id.nav_listview:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

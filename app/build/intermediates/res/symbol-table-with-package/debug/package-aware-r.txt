@@ -1298,6 +1298,7 @@ id invisible
 id italic
 id item_search
 id item_touch_helper_previous_elevation
+id iv_logo
 id labeled
 id largeLabel
 id left
@@ -1553,6 +1554,7 @@ menu drawer_menu
 menu menu
 mipmap ic_launcher
 mipmap ic_launcher_round
+string PORT_NUMBER
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
