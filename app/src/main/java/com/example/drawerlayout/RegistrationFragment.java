@@ -2,7 +2,15 @@ package com.example.drawerlayout;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -107,7 +115,6 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
                         }
 
                     }
-
 
                 }
 
@@ -232,18 +239,20 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
                             gizi.getText().toString()
                     )) {
                         pg.dismiss();
-                        reset();
                         dialog.dismiss();
                         Toast.makeText(getActivity(), "Data Berhasil Disimpan", Toast.LENGTH_SHORT).show();
+                        sendWa();
+                        reset();
                     } else {
                         pg.dismiss();
                         dialog.dismiss();
                         Toast.makeText(getActivity(), "Data Gagal Disimpan", Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
+                    e.printStackTrace();
                     pg.dismiss();
                     dialog.dismiss();
-                    Toast.makeText(getActivity(), "ERROR: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "ERROR: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -267,6 +276,31 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
         bb.setText("");
         gizi.setText("");
     }
+
+    private void sendWa() {
+        try {
+            String semuapesan =
+                    "Nama Bayi: "+ nmBayi.getText().toString() + "\n"+
+                            "Umur Bayi(bln): "+ umur.getText().toString() + "\n"+
+                            "Nama Ibu: "+ nmIbu.getText().toString() + "\n"+
+                            "No. HP: "+ noHp.getText().toString() + "\n"+
+                            "Tinggi Badan(cm): "+ tb.getText().toString() + "\n"+
+                            "Berat Badan(kg): "+ bb.getText().toString() +"\n"+
+                            "Status: "+ gizi.getText().toString();
+
+            Intent whatsAppIntent = new Intent("android.intent.action.MAIN");
+            whatsAppIntent.setAction(Intent.ACTION_VIEW);
+            whatsAppIntent.setPackage("com.whatsapp");
+            String url = "https://api.whatsapp.com/send?phone=" + noHp.getText().toString() + "&text=" + semuapesan;
+            Log.d("sendwa", "no hp = " + noHp);
+            whatsAppIntent.setData(Uri.parse(url));
+            startActivity(whatsAppIntent);
+
+            } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(getActivity(), "Whatsapp not installed.", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     private int find(int[] arr, int value) {
         for (int i = 0; i < arr.length; i++) {
@@ -353,8 +387,6 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
 
         return view;
     }
-
-//    private void clearText
 
     @Override
     public void onClick(View view) {

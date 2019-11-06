@@ -31,7 +31,7 @@ public class ListviewFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_list, container, false);
-        Toast.makeText(getContext(), "loaded", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), "loaded", Toast.LENGTH_SHORT).show();
         listView = view.findViewById(R.id.list_view);
         db = new DatabaseHelper(getContext());
         sqLiteDatabase = db.getReadableDatabase();

@@ -31,7 +31,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:cursorVisible="true"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/hitam"
                     android:hint="No Seri"
                     android:inputType="number"
                     android:maxLength="100" />
@@ -42,6 +43,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:cursorVisible="true"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/hitam"
                     android:hint="Nama Bayi"
                     android:maxLength="20" />
 
@@ -56,6 +59,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:cursorVisible="true"
+                        android:textCursorDrawable="@null"
+                        android:textColor="@color/hitam"
                         android:hint="Umur Bayi"
                         android:inputType="numberDecimal"
                         android:maxLength="2" />
@@ -73,6 +78,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:cursorVisible="true"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/hitam"
                     android:hint="Nama Ibu"
                     android:maxLength="20" />
 
@@ -82,7 +89,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:cursorVisible="true"
-                    android:hint="No. Hp"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/hitam"
+                    android:hint="Nomor Hp (62..)"
                     android:inputType="number"
                     android:maxLength="13" />
 
