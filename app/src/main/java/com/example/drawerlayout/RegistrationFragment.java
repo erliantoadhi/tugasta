@@ -3,14 +3,9 @@ package com.example.drawerlayout;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -76,7 +71,6 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
     }
 
     private void getFirebase() {
-//        isFirstOpen = true;
         try {
             System.out.println("cari data");
 
@@ -113,9 +107,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
                                 Log.d("dbhelper", "db set Error : " + e.getMessage());
                             }
                         }
-
                     }
-
                 }
 
                 @Override
@@ -198,6 +190,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
             gizi.setError("Tidak boleh kosong");
             cek = false;
         }
+
         return cek;
     }
 
@@ -252,7 +245,7 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
                     e.printStackTrace();
                     pg.dismiss();
                     dialog.dismiss();
-//                    Toast.makeText(getActivity(), "ERROR: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "ERROR: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -376,7 +369,6 @@ public class RegistrationFragment extends Fragment implements View.OnClickListen
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setCancelable(false);
                 }
-
             }
 
             @Override

@@ -27,7 +27,6 @@ public class ListAdapter extends ArrayAdapter {
 
     @Override
     public void add(Object object) {
-//        super.add(object);
         list.add(object);
     }
 
@@ -46,7 +45,6 @@ public class ListAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-//        View row = convertView;
         LayoutHandler layoutHandler;
 
         if (convertView == null) {
@@ -60,7 +58,7 @@ public class ListAdapter extends ArrayAdapter {
             layoutHandler.BB = (TextView)convertView.findViewById(R.id.text_bb);
             layoutHandler.STATUS = (TextView)convertView.findViewById(R.id.text_status);
             convertView.setTag(layoutHandler);
-//            convertView = layoutInflater.inflate()
+
         } else {
             layoutHandler = (LayoutHandler)convertView.getTag();
         }
@@ -74,6 +72,5 @@ public class ListAdapter extends ArrayAdapter {
         layoutHandler.STATUS.setText(dataProvider.getStatus());
 
         return convertView;
-
     }
 }

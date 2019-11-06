@@ -63,9 +63,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(CL_TB, tb);
         cv.put(CL_BB, bb);
         cv.put(CL_GIZI, gizi);
-//        long result = db.insertWithOnConflict(bayi, null, cv, SQLiteDatabase.CONFLICT_IGNORE);
-//        Log.d("Result Insert", "= " + result);
-//        if (result == -1) db.update(bayi, cv, CL_NOSERI + "=?", new String[] {String.valueOf(noSeri)});
 
         Log.d("dbhelper", "db noSeri = " + noSeri);
 
@@ -77,20 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.d("dbhelper", "db = insert");
         }
 
-//        long result = db.update(bayi, cv, CL_NOSERI + "=?", new String[] {String.valueOf(noSeri)});
-//        Log.d("Result Insert", "= " + result);
-//        if (result == 0) db.insertWithOnConflict(bayi, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
         return true;
-    }
-
-
-
-    public Cursor getData(String nmby, String nmIbu) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + bayi + " WHERE " + CL_NMBAYI + "='" + nmby + "' AND "+ CL_NMIBU + "='" + nmIbu + "'";
-        Cursor cursor = db.rawQuery(query, null);
-
-        return cursor;
     }
 
     public Cursor getAllData(){
