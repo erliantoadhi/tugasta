@@ -55,7 +55,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textColor="#000"
-                        android:text="Umur"/>
+                        android:text="Umur(bln)"/>
                     <TextView
                         android:id="@+id/pb"
                         android:fontFamily="serif"
